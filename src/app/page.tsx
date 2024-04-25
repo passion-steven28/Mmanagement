@@ -1,5 +1,5 @@
 import DatePicker from "@/components/main/DatePicker";
-import MeetingCard from "@/components/main/MeetingCard";
+import MeetingCard from "@/components/main/PastMeetingCard";
 import MeetingNavBar from "@/components/main/MeetingNavBar"
 import { title } from "process";
 

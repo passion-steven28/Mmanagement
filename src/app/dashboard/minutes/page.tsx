@@ -1,5 +1,5 @@
 import DatePicker from "@/components/main/DatePicker";
-import MeetingCard from "@/components/main/MeetingCard";
+import MeetingCard from "@/components/main/PastMeetingCard";
 import MeetingNavBar from "@/components/main/MeetingNavBar"
 import { client } from "../../../../sanity/lib/client";
 
@@ -38,7 +38,7 @@ export default async function Home() {
             }
             />
 
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-4 px-4 mb-4">
                 {meetingsContent.map((meeting: any) => (
                     <MeetingCard
                         key={meeting.slug}
@@ -48,7 +48,7 @@ export default async function Home() {
                         endTime={meeting.endTime}
                         location={meeting.location}
                         slug={meeting.slug.current}
-                        // agenda={meeting.agenda}
+                    // agenda={meeting.agenda}
                     />
                 ))}
             </div>

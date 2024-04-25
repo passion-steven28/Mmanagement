@@ -20,16 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "min-h-screen grid grid-cols-12 gap-4 relative isolate")}>
-        <nav className="sticky top-0 bg-slate-100/50 backdrop-blur-lg shadow z-50 h-auto col-start-1 col-end-13">
-          <TopNavBar />
-        </nav>
-
-        <div className="col-start-1 col-end-4 row-start-2 bg-gray-100 sticky left-0 top-[10%] h-screen">
+      <body className={cn(inter.className, "min-h-screen grid grid-cols-12 relative")}>
+        <div className="col-start-1 col-end-4  bg-gray-100 sticky left-0 top-0 py-4 max-h-screen">
           <SideNavBar />
         </div>
 
-        <main className="min-h-screen relative col-start-4 col-end-13 row-start-2">
+        <main className="relative col-start-4 col-end-13 flex flex-col gap-2">
+          <nav className="sticky top-0 bg-slate-100/50 backdrop-blur-lg shadow z-50 max-h-fit">
+            <TopNavBar />
+          </nav>
           {children}
         </main>
       </body>

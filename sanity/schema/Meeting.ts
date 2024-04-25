@@ -6,43 +6,90 @@ export const Meeting = defineType({
     type: "document",
     fields: [
         defineField({
+            name: "slug",
+            title: "Slug",
+            type: "slug",
+            options: {
+                source: "title",
+                maxLength: 96,
+            },
+        }),
+        defineField({
             name: "title",
             title: "Title",
             type: "string",
             validation: (Rule) => Rule.required(),
         }),
         defineField({
-            name: "date",
-            title: "Date",
+            name: "attachments",
+            title: "Attachments",
+            type: "array",
+            of: [{ type: "file" }],
+        }),
+        defineField({
+            name: "startTime",
+            title: "StartTime",
             type: "datetime",
-            options: {
-                dateFormat: 'YYYY-MM-DD',
-                timeFormat: 'HH:mm',
-                timeStep: 15,
-                calendarTodayLabel: 'Today'
-            },
+        }),
+        defineField({
+            name: "endTime",
+            title: "EndTime",
+            type: "datetime",
         }),
         defineField({
             name: "location",
             title: "Location",
             type: "string",
-            validation: (Rule) => Rule.required(),
         }),
         defineField({
             name: "agenda",
             title: "Agenda",
-            type: "string",
+            type: "array",
+            of: [{
+                type: "string"
+            }],
+            initialValue: [],
         }),
         defineField({
-            name: "numberOfAttendees",
-            title: "Number of Attendees",
-            type: "number",
+            name: "outcomes",
+            title: "Outcomes",
+            type: "array",
+            of: [{
+                type: "string"
+            }],
         }),
         defineField({
-            name: "chairperson",
-            title: "Chairperson",
-            type: "reference",
-            to: [{ type: "member" }],
+            name: "attendees",
+            title: "Attendees",
+            type: "array",
+            of: [{ type: "reference", to: [{ type: "member" }] }],
+        }),
+        defineField({
+            name: "guest",
+            title: "Guest",
+            type: "array",
+            of: [{ type: "reference", to: [{ type: "member" }] }],
+        }),
+        defineField({
+            name: "body",
+            title: "Body",
+            type: "array",
+            of: [
+                {
+                    type: "block",
+                },
+                {
+                    type: "image",
+                    fields: [
+                        {
+                            type: "text",
+                            name: "alt",
+                            title: "Alternative text",
+                            description: "image alt text",
+                        },
+                    ],
+                },
+            ],
         }),
     ],
 });

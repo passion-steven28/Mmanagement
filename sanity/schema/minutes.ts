@@ -64,14 +64,21 @@ export const minutes = defineType({
                 {
                     type: "object",
                     fields: [
-                        { name: "description", type: "string" },
+                        {
+                            name: "description",
+                            type: "string"
+                        },
                         {
                             name: "owner",
                             title: "Owner",
                             type: "reference",
                             to: [{ type: "member" }],
                         },
-                        { name: "deadline", title: "Deadline", type: "date" },
+                        {
+                            name: "deadline",
+                            title: "Deadline",
+                            type: "date"
+                        },
                     ],
                 },
             ],
