@@ -31,7 +31,7 @@ export default async function Home() {
         <main className="grid grid-cols-3 place-items-start gap-4 px-4">
             {meetingsContent.map(
                 (meeting: {
-                    slug: Key | null | undefined;
+                    slug: string | null | undefined;
                     title: string;
                     agenda: string;
                     location: string;
