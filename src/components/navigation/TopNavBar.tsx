@@ -8,7 +8,9 @@ export default function TopNavBar({ }: Props) {
     return (
         <div className='flex items-center justify-between w-full p-4 px-10'>
             <div>
-                <h1>MinuteS</h1>
+                <h1>
+                    {new Date().toLocaleDateString()}
+                </h1>
             </div>
 
             <div>

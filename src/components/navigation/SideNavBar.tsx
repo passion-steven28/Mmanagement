@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 const navLinks = [
     {
-        name: "Dashboard",
-        href: "/dashboard",
+        name: "Home",
+        href: "/",
         icon: ArrowRight,
     },
     {
@@ -19,11 +19,6 @@ const navLinks = [
         href: "/dashboard/minutes",
         icon: ArrowRight,
     },
-    {
-        name: "Settings",
-        href: "/dashboard/settings",
-        icon: ArrowRight,
-    }
 ]
 
 type Props = {}
@@ -33,7 +28,7 @@ export default function SideNavBar({ }: Props) {
         <div className='grid grid-cols-1 gap-2 p-4'>
             <div className='flex items-center justify-start h-[20vh] w-full'>
                 <Image
-                    src="/logo.png"
+                    src="/logo.svg"
                     alt="logo"
                     width={300}
                     height={300}
