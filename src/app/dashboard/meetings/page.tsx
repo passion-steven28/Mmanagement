@@ -6,7 +6,7 @@ async function getData() {
     // GROQ query to fetch meetings within the current week
     const query = `
         *[_type == "meeting"] | order(startTime) {
-            slug,
+            slug{current},
             title,
             agenda,
             location,
@@ -25,13 +25,13 @@ async function getData() {
 
 export default async function Home() {
     const meetingsContent = await getData();
-
+    console.log(meetingsContent.slug);
 
     return (
         <main className="grid grid-cols-3 place-items-start gap-4 px-4">
             {meetingsContent.map(
                 (meeting: {
-                    slug: string | null | undefined;
+                    slug: { current: string | null };
                     title: string;
                     agenda: string;
                     location: string;
@@ -39,8 +39,8 @@ export default async function Home() {
                     endTime: string;
                 }) => (
                     <MeetingCard
-                        key={meeting.slug?.current ?? ""}
-                        slug={meeting.slug?.current}
+                        key={meeting.title}
+                        slug={meeting.slug.current ?? ""}
                         title={meeting.title}
                         agenda={meeting.agenda}
                         location={meeting.location}
@@ -53,7 +53,6 @@ export default async function Home() {
                     />
                 )
             )}
-
         </main>
     );
 }
