@@ -105,7 +105,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                         </h1>
                         <PortableText
                             value={data.body}
-                            components={myPortableTextComponents}
+                            // components={myPortableTextComponents}
                         />
                     </div>
 
@@ -146,26 +146,4 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </div>
         </section>
     );
-}
-
-
-const myPortableTextComponents = {
-    h1: (props: { children: React.ReactNode }) => <h1
-    className='text-3xl'    {...props} />,
-    h2: (props: { children: React.ReactNode }) => <h2 {...props} />,
-    h3: (props: { children: React.ReactNode }) => <h3 {...props} />,
-    h4: (props: { children: React.ReactNode }) => <h4 {...props} />,
-    h5: (props: { children: React.ReactNode }) => <h5 {...props} />,
-    h6: (props: { children: React.ReactNode }) => <h6 {...props} />,
-    p: (props: { children: React.ReactNode }) => <p {...props} />,
-    a: (props: { children: React.ReactNode }) => <a {...props} />,
-    li: (props: { children: React.ReactNode }) => <li {...props} />,
-    ul: (props: { children: React.ReactNode }) => <ul {...props} />,
-    ol: (props: { children: React.ReactNode }) => <ol {...props} />,
-    br: (props: { children: React.ReactNode }) => <br {...props} />,
-    hr: (props: { children: React.ReactNode }) => <hr {...props} />,
-    code: (props: { children: React.ReactNode }) => <code {...props} />,
-    em: (props: { children: React.ReactNode }) => <em {...props} />,
-    strong: (props: { children: React.ReactNode }) => <strong {...props} />,
-    s: (props: { children: React.ReactNode }) => <s {...props} />,
 }

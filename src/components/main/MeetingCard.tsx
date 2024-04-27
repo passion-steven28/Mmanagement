@@ -67,7 +67,7 @@ export default function MeetingCard({ slug, agenda, title, date, startTime, endT
                 </CardContent>
                 <CardFooter className='fle items-center justify-center w-full'>
                     <Link
-                        href={'/dashboard/meetings/' + slug}
+                        href={`/dashboard/meetings/${slug}`}
                     >
                         <Button>join meeting</Button>
                     </Link>
